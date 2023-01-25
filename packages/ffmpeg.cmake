@@ -174,6 +174,7 @@ ExternalProject_Add(ffmpeg
         --enable-libjxl
         --enable-amf
         
+        --enable-version3
         --enable-mbedtls
         
         --disable-doc

@@ -15,6 +15,7 @@ ExternalProject_Add(ffmpeg
         libxml2
         libvpl
         libjxl
+        mbedtls
     GIT_REPOSITORY https://github.com/FFmpeg/FFmpeg.git
     SOURCE_DIR ${SOURCE_LOCATION}
     GIT_CLONE_FLAGS "--filter=tree:0"
@@ -30,7 +31,36 @@ ExternalProject_Add(ffmpeg
         --enable-runtime-cpudetect
 
         --enable-network
-
+        --enable-protocol=async
+        --enable-protocol=cache
+        --enable-protocol=data
+        --enable-protocol=ffrtmphttp
+        --enable-protocol=file
+        --enable-protocol=ftp
+        --enable-protocol=hls
+        --enable-protocol=http
+        --enable-protocol=httpproxy
+        --enable-protocol=https
+        --enable-protocol=mmsh
+        --enable-protocol=mmst
+        --enable-protocol=pipe
+        --enable-protocol=rtmp
+        --enable-protocol=rtmps
+        --enable-protocol=rtmpt
+        --enable-protocol=rtmpts
+        --enable-protocol=rtp
+        --enable-protocol=sctp
+        --enable-protocol=srtp
+        --enable-protocol=subfile
+        --enable-protocol=tcp
+        --enable-protocol=tls
+        --enable-protocol=udp
+        --enable-protocol=udplite
+        --enable-protocol=unix
+        --enable-protocol=rist
+        --enable-protocol=srt
+        --enable-protocol=sftp
+        
         --disable-iconv 
         --disable-bzlib
         --disable-lzma
@@ -143,6 +173,9 @@ ExternalProject_Add(ffmpeg
         --enable-libvpl
         --enable-libjxl
         --enable-amf
+        
+        --enable-mbedtls
+        
         --disable-doc
         --disable-cuda
         --disable-nvdec

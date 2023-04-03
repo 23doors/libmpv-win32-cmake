@@ -29,7 +29,9 @@ ExternalProject_Add(ffmpeg
         --pkg-config-flags=--static
         --enable-cross-compile
         --enable-runtime-cpudetect
-
+        
+        # Manually enable selected protocols & networking support.
+        
         --enable-network
         --enable-protocol=async
         --enable-protocol=cache
@@ -60,6 +62,8 @@ ExternalProject_Add(ffmpeg
         --enable-protocol=rist
         --enable-protocol=srt
         --enable-protocol=sftp
+        
+        # Disable most features by default for finer selection later on.
 
         --disable-iconv
         --disable-bzlib
@@ -68,19 +72,22 @@ ExternalProject_Add(ffmpeg
         --disable-schannel
         --disable-securetransport
         --disable-xlib
-        --disable-muxers
-        --disable-demuxers
         --disable-d3d11va
         --disable-nvenc
         --disable-dxva2
         --disable-bsfs
-        --disable-filters
-        --disable-parsers
         --disable-indevs
         --disable-outdevs
+        --disable-bsfs
+        --disable-muxers
+        --disable-demuxers
         --disable-encoders
         --disable-decoders
-        --disable-bsfs
+        --disable-filters
+        --disable-parsers
+        
+        # Enable audio & image demuxers.
+        
         --enable-demuxer=image2
         --enable-demuxer=aac
         --enable-demuxer=ac3
@@ -108,6 +115,9 @@ ExternalProject_Add(ffmpeg
         --enable-demuxer=dsf
         --enable-demuxer=dts
         --enable-demuxer=truehd
+        
+        # Enable audio & image decoders.
+        
         --enable-decoder=aac*
         --enable-decoder=ac3
         --enable-decoder=alac
@@ -133,7 +143,6 @@ ExternalProject_Add(ffmpeg
         --enable-decoder=pcm*
         --enable-decoder=dsd*
         --enable-decoder=truehd
-
         --enable-decoder=mjpeg
         --enable-decoder=ljpeg
         --enable-decoder=jpegls
@@ -144,6 +153,8 @@ ExternalProject_Add(ffmpeg
         --enable-decoder=tiff
         --enable-decoder=webp
         --enable-decoder=jpegls
+        
+        # Parsers ?
 
         --enable-parser=aac*
         --enable-parser=ac3
@@ -155,8 +166,8 @@ ExternalProject_Add(ffmpeg
         --enable-parser=tak
         --enable-parser=vorbis
 
-        --enable-filter=overlay
-
+        # Other libraries & dependencies.
+        
         --enable-postproc
         --enable-libass
         --enable-libfreetype
@@ -173,9 +184,18 @@ ExternalProject_Add(ffmpeg
         --enable-libvpl
         --enable-libjxl
         --enable-amf
+        
+        # HTTPS support.
 
         --enable-version3
         --enable-mbedtls
+        
+        # Enable overlay & equalizer audio filters.
+        
+        --enable-filter=overlay
+        --enable-filter=equalizer
+        
+        # Disable few more things.
 
         --disable-doc
         --disable-cuda

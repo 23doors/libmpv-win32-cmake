@@ -204,6 +204,10 @@ ExternalProject_Add(ffmpeg
         --disable-cuvid
         --disable-libuavs3d
         --disable-ffnvcodec
+        
+        # Needed by libjxl & shaderc.
+        
+        "--extra-libs='-lstdc++'"
         BUILD_COMMAND ${MAKE}
         INSTALL_COMMAND ${MAKE} install
         LOG_DOWNLOAD 1 LOG_UPDATE 1 LOG_CONFIGURE 1 LOG_BUILD 1 LOG_INSTALL 1

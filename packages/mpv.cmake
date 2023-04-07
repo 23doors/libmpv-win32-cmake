@@ -13,7 +13,7 @@ ExternalProject_Add(mpv
         mujs
     GIT_REPOSITORY https://github.com/mpv-player/mpv.git
     SOURCE_DIR ${SOURCE_LOCATION}
-    GIT_CLONE_FLAGS "--filter=tree:0"
+    GIT_TAG 68b3239b523cd75ba0a12f680ac7bc77e5647d40
     UPDATE_COMMAND ""
     CONFIGURE_COMMAND ${EXEC} meson <BINARY_DIR> <SOURCE_DIR>
         --prefix=${MINGW_INSTALL_PREFIX}

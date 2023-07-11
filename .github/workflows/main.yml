@@ -4,6 +4,8 @@ defaults:
     shell: bash
 
 on:
+  push:
+  pull_request:
   workflow_dispatch:
     inputs:
       command:
@@ -48,14 +50,14 @@ jobs:
             echo "x86_64_level=-v3" >> $GITHUB_ENV
           fi
 
-      - name: Setup git config
-        run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --global pull.rebase true
-          git config --global rebase.autoStash true
-          git config --global fetch.prune true
-          git config --global --add safe.directory $PWD
+      # - name: Setup git config
+      #   run: |
+      #     git config --global user.name "github-actions"
+      #     git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      #     git config --global pull.rebase true
+      #     git config --global rebase.autoStash true
+      #     git config --global fetch.prune true
+      #     git config --global --add safe.directory $PWD
 
       - uses: actions/checkout@main
         with:

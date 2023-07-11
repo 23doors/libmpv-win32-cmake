@@ -45,8 +45,8 @@ ExternalProject_Add(ffmpeg
         --enable-libfribidi
         --enable-libfontconfig
         --enable-libharfbuzz
-        --enable-libmodplug
-        --enable-libopenmpt
+#        --enable-libmodplug
+#        --enable-libopenmpt
         --enable-libmp3lame
         --enable-libsoxr
         --enable-libspeex

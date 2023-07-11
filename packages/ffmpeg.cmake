@@ -12,6 +12,8 @@ ExternalProject_Add(ffmpeg
         libwebp
         libzimg
         libmysofa
+        fontconfig
+        harfbuzz
         opus
         speex
         vorbis
@@ -20,6 +22,8 @@ ExternalProject_Add(ffmpeg
         shaderc
         libplacebo
         libaribcaption
+        aom
+        rav1e
         dav1d
     GIT_REPOSITORY https://github.com/FFmpeg/FFmpeg.git
     SOURCE_DIR ${SOURCE_LOCATION}
@@ -39,10 +43,20 @@ ExternalProject_Add(ffmpeg
         --enable-libass
         --enable-libfreetype
         --enable-libfribidi
+        --enable-libfontconfig
+        --enable-libharfbuzz
+        --enable-libmodplug
+        --enable-libopenmpt
         --enable-libmp3lame
         --enable-libsoxr
         --enable-libspeex
         --enable-libbs2b
+        --enable-libvpx
+        --enable-libwebp
+        --enable-libx264
+        --enable-libx265
+        --enable-libaom
+        --enable-librav1e
         --enable-libdav1d
         --enable-libwebp
         --enable-libzimg
@@ -66,19 +80,20 @@ ExternalProject_Add(ffmpeg
         --disable-videotoolbox
         --disable-ffplay
         --disable-ffprobe
-        
+
         # Disable muxers, encoders & filters since we are only targeting playback.
 
         --disable-muxers
         --disable-encoders
         --disable-filters
- 
+
         # Enable overlay & equalizer audio filters.
 
         --enable-filter=overlay
         --enable-filter=equalizer
 
-        "--extra-libs='-lsecurity -lschannel -lstdc++'" # needs by libjxl and shaderc
+        --disable-decoder=libaom_av1
+        "--extra-libs='-lstdc++'" # needs by libjxl and shaderc
     BUILD_COMMAND ${MAKE}
     INSTALL_COMMAND ${MAKE} install
     LOG_DOWNLOAD 1 LOG_UPDATE 1 LOG_CONFIGURE 1 LOG_BUILD 1 LOG_INSTALL 1

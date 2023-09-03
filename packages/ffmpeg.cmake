@@ -48,7 +48,7 @@ ExternalProject_Add(ffmpeg
 
         # full
         --enable-muxers
-        --disable-decoders
+        --enable-decoders
         --enable-parsers
 
         --disable-encoders

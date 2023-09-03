@@ -46,11 +46,13 @@ ExternalProject_Add(ffmpeg
         --disable-iconv
         --enable-stripping
 
-        --disable-muxers
+        # full
+        --enable-muxers
         --disable-decoders
+        --enable-parsers
+
         --disable-encoders
         --disable-demuxers
-        --disable-parsers
         --disable-protocols
         --disable-filters
         --disable-doc

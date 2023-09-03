@@ -1,5 +1,6 @@
 get_property(src_brotli TARGET brotli PROPERTY _EP_SOURCE_DIR)
 get_property(src_libjpeg TARGET libjpeg PROPERTY _EP_SOURCE_DIR)
+get_property(src_highway TARGET highway PROPERTY _EP_SOURCE_DIR)
 ExternalProject_Add(libjxl
     DEPENDS
         lcms2
@@ -18,8 +19,10 @@ ExternalProject_Add(libjxl
     CONFIGURE_COMMAND ""
     COMMAND bash -c "rm -rf <SOURCE_DIR>/third_party/brotli"
     COMMAND bash -c "rm -rf <SOURCE_DIR>/third_party/libjpeg-turbo"
+    COMMAND bash -c "rm -rf <SOURCE_DIR>/third_party/highway"
     COMMAND bash -c "ln -s ${src_brotli} <SOURCE_DIR>/third_party/brotli"
     COMMAND bash -c "ln -s ${src_libjpeg} <SOURCE_DIR>/third_party/libjpeg-turbo"
+    COMMAND bash -c "ln -s ${src_highway} <SOURCE_DIR>/third_party/highway"
     COMMAND ${EXEC} cmake -H<SOURCE_DIR> -B<BINARY_DIR>
         -DCMAKE_INSTALL_PREFIX=${MINGW_INSTALL_PREFIX}
         -DCMAKE_TOOLCHAIN_FILE=${TOOLCHAIN_FILE}
@@ -41,10 +44,10 @@ ExternalProject_Add(libjxl
         -DJPEGXL_ENABLE_DEVTOOLS=OFF
         -DJPEGXL_ENABLE_BENCHMARK=OFF
         -DJPEGXL_ENABLE_SJPEG=OFF
-	-DJPEGXL_ENABLE_AVX512=ON
-	-DJPEGXL_ENABLE_AVX512_ZEN4=ON
-        -DCMAKE_CXX_FLAGS='${CMAKE_CXX_FLAGS} -Wa,-muse-unaligned-vector-move' # fix crash on AVX2 proc (64bit) due to unaligned stack memory
-        -DCMAKE_C_FLAGS='${CMAKE_C_FLAGS} -Wa,-muse-unaligned-vector-move'
+        -DJPEGXL_ENABLE_AVX512=ON
+        -DJPEGXL_ENABLE_AVX512_ZEN4=ON
+        -DCMAKE_CXX_FLAGS='${CMAKE_CXX_FLAGS} -msse2 -Wa,-muse-unaligned-vector-move' # fix crash on AVX2 proc (64bit) due to unaligned stack memory
+        -DCMAKE_C_FLAGS='${CMAKE_C_FLAGS} -msse2 -Wa,-muse-unaligned-vector-move'
     BUILD_COMMAND ${MAKE} -C <BINARY_DIR>
     INSTALL_COMMAND ${MAKE} -C <BINARY_DIR> install
     LOG_DOWNLOAD 1 LOG_UPDATE 1 LOG_CONFIGURE 1 LOG_BUILD 1 LOG_INSTALL 1

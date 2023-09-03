@@ -48,6 +48,8 @@ ExternalProject_Add(ffmpeg
 
         # full
         --enable-muxers
+        # jxl fails, dont think all extra decoders are needed for now
+        # --disable-decoder
         --enable-decoders
         --enable-parsers
 
@@ -97,7 +99,7 @@ ExternalProject_Add(ffmpeg
 
         --enable-libdav1d
 
-        --enable-libjxl
+        # --enable-libjxl
 
         --enable-libvpl
         --enable-libbs2b

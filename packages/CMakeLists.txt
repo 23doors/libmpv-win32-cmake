@@ -58,7 +58,7 @@ list(APPEND ep
     libopenmpt
     brotli
     highway
-    # libjxl
+    libjxl
     uavs3d
     davs2
     angle-headers

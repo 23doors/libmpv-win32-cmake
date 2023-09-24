@@ -18,7 +18,7 @@ ExternalProject_Add(ffmpeg
         speex
         vorbis
         libvpl
-        # libjxl
+        libjxl
         libxml2
         shaderc
         dav1d
@@ -139,7 +139,7 @@ ExternalProject_Add(ffmpeg
         --enable-decoder=libdav1d
         --enable-decoder=theora
         --enable-decoder=msmpeg*
-        --enable-decoder=mjpeg
+        --enable-decoder=mjpeg*
         --enable-decoder=wmv*
 
         --enable-decoder=aac*
@@ -166,6 +166,7 @@ ExternalProject_Add(ffmpeg
         --enable-decoder=wma*
         --enable-decoder=pcm*
         --enable-decoder=dsd*
+        --enable-decoder=dca
 
         --enable-decoder=ssa
         --enable-decoder=ass
@@ -207,7 +208,7 @@ ExternalProject_Add(ffmpeg
         --enable-demuxer=hevc
         --enable-demuxer=rtsp
         --enable-demuxer=mpeg4
-        --enable-demuxer=mjpeg
+        --enable-demuxer=mjpeg*
         --enable-demuxer=avi
         --enable-demuxer=av1
         --enable-demuxer=matroska
@@ -238,8 +239,9 @@ ExternalProject_Add(ffmpeg
         --enable-demuxer=wv
         --enable-demuxer=xwma
         --enable-demuxer=dsf
-        --enable-demuxer=dts
         --enable-demuxer=truehd
+        --enable-demuxer=dts
+        --enable-demuxer=dtshd
 
         --enable-demuxer=ass
         --enable-demuxer=srt
@@ -259,12 +261,12 @@ ExternalProject_Add(ffmpeg
         --enable-parser=aac*
         --enable-parser=ac3
         --enable-parser=cook
-        --enable-parser=dca
         --enable-parser=flac
         --enable-parser=gsm
         --enable-parser=mpegaudio
         --enable-parser=tak
         --enable-parser=vorbis
+        --enable-parser=dca
 
         --enable-filter=overlay
         --enable-filter=equalizer

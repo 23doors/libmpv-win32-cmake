@@ -18,7 +18,7 @@ ExternalProject_Add(ffmpeg
         speex
         vorbis
         libvpl
-        libjxl
+        # libjxl
         libxml2
         shaderc
         dav1d

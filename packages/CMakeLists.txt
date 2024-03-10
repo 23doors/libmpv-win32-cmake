@@ -90,6 +90,7 @@ list(APPEND ep
     libuv
     libsodium
     megasdk
+    libplacebo
 )
 foreach(package IN LISTS ep)
     if(NOT ${SINGLE_SOURCE_LOCATION} STREQUAL "")

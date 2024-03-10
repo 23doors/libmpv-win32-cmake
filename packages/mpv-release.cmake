@@ -27,6 +27,7 @@ ExternalProject_Add(mpv-release
         mujs
         shaderc
         spirv-cross
+        libplacebo
     URL ${LINK}
     SOURCE_DIR ${SOURCE_LOCATION}
     CONFIGURE_COMMAND ${EXEC} meson <BINARY_DIR> <SOURCE_DIR>
@@ -50,7 +51,6 @@ ExternalProject_Add(mpv-release
         -Dopenal=disabled
         -Dspirv-cross=enabled
         -Dvulkan=disabled
-        -Dlibplacebo=disabled
         -Degl-angle=enabled
     BUILD_COMMAND ${EXEC} ninja -C <BINARY_DIR>
     INSTALL_COMMAND ""

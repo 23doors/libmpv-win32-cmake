@@ -70,7 +70,7 @@ list(APPEND ep
     glslang
     shaderc
     glad
-    fast_float
+    fast-float
     libdovi
     rav1e
     libva

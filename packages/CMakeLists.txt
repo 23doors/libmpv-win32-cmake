@@ -48,6 +48,7 @@ list(APPEND ep
     nvcodec-headers
     libmysofa
     aom
+    xxhash
     dav1d
     libwebp
     vapoursynth
@@ -69,6 +70,7 @@ list(APPEND ep
     glslang
     shaderc
     glad
+    fast_float
     libdovi
     rav1e
     libva

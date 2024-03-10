@@ -74,6 +74,7 @@ list(APPEND ep
     libva
     libzvbi
     libsixel
+    vulkan-header
     vulkan
     libplacebo
     ffmpeg

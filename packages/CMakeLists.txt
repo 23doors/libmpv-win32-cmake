@@ -74,6 +74,7 @@ list(APPEND ep
     libva
     libzvbi
     libsixel
+    libplacebo
     ffmpeg
     mpv
     mpv-release
@@ -90,7 +91,6 @@ list(APPEND ep
     libuv
     libsodium
     megasdk
-    libplacebo
 )
 foreach(package IN LISTS ep)
     if(NOT ${SINGLE_SOURCE_LOCATION} STREQUAL "")

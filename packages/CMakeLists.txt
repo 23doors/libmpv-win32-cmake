@@ -75,8 +75,6 @@ list(APPEND ep
     libzvbi
     libsixel
     vulkan
-    lcms2
-    glad
     libplacebo
     ffmpeg
     mpv
